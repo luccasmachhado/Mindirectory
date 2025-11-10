@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mindirectory - Cursos</title>
+    <link rel="stylesheet" href="{% static 'cursos/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <img src="../../../media/default/logo.png" alt="" style="">
+        <p>Explore nossos cursos e expanda seus horizontes</p>
+    </header>
+
+    <main>
+        <div class="grid-cursos">
+            {% for curso in cursos %}
+                <div class="curso-card">
+                    {% if curso.imagem %}
+                        <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}">
+                    {% endif %}
+                    <h2>{{ curso.nome }}</h2>
+                    <p>{{ curso.descricao|truncatewords:20 }}</p>
+                    <span class="duracao">Duração: {{ curso.duracao }}</span>
+                    <span class="preco">R$ {{ curso.preco }}</span>
+                </div>
+            {% empty %}
+                <p>Nenhum curso disponível no momento.</p>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
