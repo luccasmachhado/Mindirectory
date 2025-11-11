@@ -8,26 +8,44 @@
 </head>
 <body>
     <header>
-        <img src="../../../media/default/logo.png" alt="" style="">
-        <p>Explore nossos cursos e expanda seus horizontes</p>
+        <div class="container-header">
+            <div class="logo-area">
+                <img src="../../../media/default/logo.png" alt="Logo Mindirectory" class="logo">
+                <p class="slogan">Explore nossos cursos e expanda seus horizontes</p>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/login" class="btn-nav">Login</a>
+                <a href="/cadastro" class="btn-nav destaque">Cadastro</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <div class="grid-cursos">
-            {% for curso in cursos %}
-                <div class="curso-card">
-                    {% if curso.imagem %}
-                        <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}">
-                    {% endif %}
-                    <h2>{{ curso.nome }}</h2>
-                    <p>{{ curso.descricao|truncatewords:20 }}</p>
-                    <span class="duracao">Duração: {{ curso.duracao }}</span>
-                    <span class="preco">R$ {{ curso.preco }}</span>
-                </div>
-            {% empty %}
-                <p>Nenhum curso disponível no momento.</p>
-            {% endfor %}
-        </div>
+        <section class="cursos-section">
+            <h1 class="titulo-principal">Nossos Cursos</h1>
+            <div class="grid-cursos">
+                {% for curso in cursos %}
+                    <div class="curso-card">
+                        {% if curso.imagem %}
+                            <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}" class="curso-img">
+                        {% endif %}
+                        <h2 class="curso-nome">{{ curso.nome }}</h2>
+                        <p class="curso-descricao">{{ curso.descricao|truncatewords:20 }}</p>
+                        <div class="curso-info">
+                            <span class="duracao">⏱ {{ curso.duracao }}</span>
+                            <span class="preco">💰 R$ {{ curso.preco }}</span>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="sem-cursos">Nenhum curso disponível no momento.</p>
+                {% endfor %}
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; {{ now|date:"Y" }} Mindirectory — Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

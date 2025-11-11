@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'cursos/css/style-register.css' %}">
+    </head>
+    <div class="oneColeDiv">
+        <form name="input" action="register.jsp" method="post">
+
+            <h1>Register a new account</h1><br/>
+
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" value=""/></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password1"/></td>
+                </tr>
+                <tr>
+                    <td>Password again:</td>
+                    <td><input type="password" name="password2"/></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" value=""/></td>
+                </tr>
+                <td></td>
+                    <td><input type="submit" value="Register!"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</html>

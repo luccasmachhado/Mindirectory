@@ -1,0 +1,130 @@
+/* ====== VARIÁVEIS DE ESTILO ====== */
+:root {
+    --cor-primaria: #0077ff;
+    --cor-secundaria: #00c4cc;
+    --cor-fundo: #f9fafb;
+    --cor-branca: #ffffff;
+    --cor-texto: #333;
+    --sombra: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 10px;
+}
+
+/* ====== RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ====== BODY ====== */
+body {
+    background: var(--cor-fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--cor-texto);
+}
+
+/* ====== CONTAINER ====== */
+.oneColeDiv {
+    background: var(--cor-branca);
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    padding: 2.5rem 3rem;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ====== TÍTULO ====== */
+h1 {
+    color: var(--cor-primaria);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ====== TABELA DO FORM ====== */
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+td {
+    padding: 0.6rem 0;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+td:first-child {
+    width: 40%;
+}
+
+/* ====== CAMPOS ====== */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.15);
+    outline: none;
+}
+
+/* ====== BOTÃO ====== */
+input[type="submit"] {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: var(--cor-branca);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.7rem 1.4rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
+}
+
+/* ====== ANIMAÇÃO ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 480px) {
+    .oneColeDiv {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    td:first-child {
+        width: 35%;
+    }
+}

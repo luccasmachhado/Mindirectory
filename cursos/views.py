@@ -16,10 +16,10 @@ def login_view(request):
         user = authenticate(request, username=username, password=senha)
         if user is not None:
             auth_login(request, user)
-            return redirect('/')  # redireciona pra página inicial
+            return redirect('/')  
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
-    return render(request, 'login.html')
+    return render(request, 'cursos/login.html')
 
 def cadastro_view(request):
     if request.method == 'POST':
@@ -41,7 +41,7 @@ def cadastro_view(request):
         messages.success(request, 'Conta criada com sucesso! Faça login.')
         return redirect('login')
 
-    return render(request, 'cadastro.html')
+    return render(request, 'cursos/cadastro.html')
 
 def logout_view(request):
     auth_logout(request)
