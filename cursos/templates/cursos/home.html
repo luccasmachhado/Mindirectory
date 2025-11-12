@@ -15,7 +15,7 @@
             </div>
 
             <nav class="nav-links">
-                <a href="/login" class="btn-nav">Login</a>
+                <a href="/login" class="btn-nav destaque">Login</a>
                 <a href="/cadastro" class="btn-nav destaque">Cadastro</a>
             </nav>
         </div>
@@ -25,7 +25,8 @@
         <section class="cursos-section">
             <h1 class="titulo-principal">Nossos Cursos</h1>
             <div class="grid-cursos">
-                {% for curso in cursos %}
+            {% for curso in cursos %}
+                <a href="{% url 'pagina_cursos' curso.id %}">
                     <div class="curso-card">
                         {% if curso.imagem %}
                             <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}" class="curso-img">
@@ -37,13 +38,11 @@
                             <span class="preco">💰 R$ {{ curso.preco }}</span>
                         </div>
                     </div>
-                {% empty %}
-                    <p class="sem-cursos">Nenhum curso disponível no momento.</p>
-                {% endfor %}
+                </a>
+            {% endfor %}
             </div>
-        </section>
+    </section>
     </main>
-
     <footer>
         <p>&copy; {{ now|date:"Y" }} Mindirectory — Todos os direitos reservados.</p>
     </footer>

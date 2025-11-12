@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ curso.nome }}</title>
+    <link rel="stylesheet" href="{% static 'cursos/css/style-pagina-cursos.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ curso.nome }}</h1>
+    </header>
+
+    <div class="pagina-curso">
+        <div class="lado-esquerdo">
+            <div class="sobre-curso">
+                <h2>Descrição</h2>
+                <p>{{ curso.descricao }}</p>
+            </div>
+
+            <div class="lista-modulos">
+                <h2>Módulos do Curso</h2>
+                {% for modulo in curso.modulos %}
+                    <div class="modulo">
+                        <h3>{{ modulo.titulo }}</h3>
+                        <p>{{ modulo.subtitulo }}</p>
+                    </div>
+                {% empty %}
+                    <p>Nenhum módulo cadastrado.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <aside class="lado-direito">
+            <div class="detalhes">
+                <span>Nível</span>
+                <strong>{{ curso.nivel }}</strong>
+            </div>
+
+            <div class="detalhes">
+                <span>Carga Horária</span>
+                <strong>{{ curso.duracao }}</strong>
+            </div>
+
+            <div class="detalhes">
+                <span>Professor</span>
+                <strong>{{ curso.professor }}</strong>
+            </div>
+
+            <div class="detalhes">
+                <span>Preço</span>
+                <strong>R$ {{ curso.preco }}</strong>
+            </div>
+
+            <button class="botao-matricula">Matricule-se</button>
+        </aside>
+    </div>
+</body>
+</html>

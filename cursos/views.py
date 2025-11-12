@@ -4,10 +4,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
 
 def home(request):
     cursos = Curso.objects.all()
     return render(request, 'cursos/home.html', {'cursos': cursos})
+
+def pagina_cursos(request, id):
+    curso = get_object_or_404(Curso, id=id)
+    return render(request, 'cursos/pagina_cursos.html', {'curso': curso})
 
 def login_view(request):
     if request.method == 'POST':

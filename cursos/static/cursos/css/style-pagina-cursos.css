@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #0077ff, #00c4cc);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.pagina-curso {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.lado-esquerdo, .lado-direito {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.sobre-curso, .lista-modulos {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #0077ff;
+    margin-top: 0;
+}
+
+.modulo {
+    background: #f9fafb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #0077ff;
+}
+
+.modulo h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.modulo p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.detalhes {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detalhes span {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+.detalhes strong {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.botao-matricula {
+    width: 100%;
+    background: linear-gradient(135deg, #0077ff, #00c4cc);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-matricula:hover {
+    transform: scale(1.02);
+}
