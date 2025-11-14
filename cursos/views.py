@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     cursos = Curso.objects.all()
-    return render(request, 'cursos/home.html', {'cursos': cursos})
+    return render(request, 'cursos/index.html', {'cursos': cursos})
 
 def pagina_cursos(request, id):
     curso = get_object_or_404(Curso, id=id)
