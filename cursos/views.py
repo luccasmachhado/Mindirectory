@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     cursos = Curso.objects.all()
@@ -21,7 +22,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=senha)
         if user is not None:
             auth_login(request, user)
-            return redirect('/')  
+            return redirect('usuario')  
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
     return render(request, 'cursos/login.html')
@@ -51,3 +52,8 @@ def cadastro_view(request):
 def logout_view(request):
     auth_logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def usuario_view(request):
+    return render(request, 'cursos/usuario.html')
+

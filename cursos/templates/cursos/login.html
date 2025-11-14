@@ -6,20 +6,37 @@
     </head>
     <body>
         <div class="oneColeDiv">
-            <form name="input" action="register.jsp" method="post">
-                <h1>Enter into your account</h1><br/>
-                    <table>
-                        <tr>
-                            <td>Username:</td>
-                            <td><input type="text" name="username" value=""/></td>
-                        </tr>
-                        <tr>
-                            <td>Password:</td>
-                            <td><input type="password" name="password1"/></td>
-                        </tr>
-                            <td><input type="submit" value="Login"/></td>
-                        </tr>
-                    </table>
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <h1>Acesse sua conta</h1><br/>
+
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <p class="message {{ message.tags }}">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <table>
+                    <tr>
+                        <td>Usuário:</td>
+                        <td><input type="text" name="username" value=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Senha:</td>
+                        <td><input type="password" name="password"/></td>
+                    </tr>
+                        <td><input type="submit" value="Login"/></td>
+                    </tr>
+                </table>
+                
+                <div class="signup-link">
+                    <p>Ainda não tem conta?  
+                        <a href="{% url 'cadastro' %}">Criar conta</a>
+                    </p>
+                </div>
             </form>
+        </div>
     </body>
 </html>

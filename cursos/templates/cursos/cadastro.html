@@ -1,35 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="{% static 'cursos/css/style-register.css' %}">
-    </head>
-    <div class="oneColeDiv">
-        <form name="input" action="register.jsp" method="post">
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'cursos/css/style-register.css' %}">
+    <title>Cadastro</title>
+</head>
 
-            <h1>Register a new account</h1><br/>
+<body>
+    <div class="oneColeDiv">
+        <form action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            
+            <h1>Registre sua conta</h1><br/>
 
             <table>
                 <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="username" value=""/></td>
+                    <td>Nome de Usuário:</td>
+                    <td><input type="text" name="username" required></td>
                 </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password1"/></td>
-                </tr>
-                <tr>
-                    <td>Password again:</td>
-                    <td><input type="password" name="password2"/></td>
-                </tr>
+
                 <tr>
                     <td>Email:</td>
-                    <td><input type="text" name="email" value=""/></td>
+                    <td><input type="email" name="email" required></td>
                 </tr>
-                <td></td>
-                    <td><input type="submit" value="Register!"/></td>
+
+                <tr>
+                    <td>Senha:</td>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+
+                <tr>
+                    <td>Confirmar senha:</td>
+                    <td><input type="password" name="confirm_password" required></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Registrar"></td>
                 </tr>
             </table>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
         </form>
     </div>
+</body>
 </html>
